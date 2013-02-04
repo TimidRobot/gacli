@@ -12,9 +12,13 @@ Install
 1. Ensure you are using `FileVault 2`_ on Mac OS X Lion or later
 2. Install ``onetimepass`` python module:
 
+::
+
    sudo pip install https://github.com/tadeck/onetimepass/archive/v0.1.2.tar.gz
 
-3. [PENDING] Install ``gacli`` python module
+3. [PENDING] Install ``gacli`` python module:
+
+::
 
    pip install gacli
 
@@ -57,5 +61,3 @@ gacli is licensed under the `BSD 2-Clause License <http://www.opensource.org/lic
     CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
     ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
     POSSIBILITY OF SUCH DAMAGE.
-
-All trademarks are property of their respective owners.
