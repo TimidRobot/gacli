@@ -8,19 +8,12 @@ codes.
 Install
 =======
 
-
 1. Ensure you are using `FileVault 2`_ on Mac OS X Lion or later
-2. Install ``onetimepass`` python module:
+2. Install ``gacli`` python module:
 
 ::
 
-   sudo pip install https://github.com/tadeck/onetimepass/archive/v0.1.2.tar.gz
-
-3. [PENDING] Install ``gacli`` python module:
-
-::
-
-   pip install gacli
+   pip install https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli
 
 .. _`FileVault 2`: http://support.apple.com/kb/HT4790
 
