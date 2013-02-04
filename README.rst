@@ -2,7 +2,19 @@ gacli
 =====
 
 The ``ga`` command line utility provides convenient access to TOTP verification
-codes.
+codes: ::
+
+    usage: ga [-h] [-d] [-f FILE]
+
+    Copy newline terminated TOTP verification code to Mac OS X clipboard.
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      -d, --debug           print debug information
+      -f FILE, --file FILE  Secret file
+
+    The debug option continually prints verification codes instead of copying a
+    single code to the clipboard.
 
 
 Install
@@ -13,7 +25,7 @@ Install
 
 ::
 
-   pip install https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli
+   sudo pip install https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli
 
 .. _`FileVault 2`: http://support.apple.com/kb/HT4790
 
