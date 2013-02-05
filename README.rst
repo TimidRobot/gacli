@@ -20,6 +20,9 @@ codes: ::
 Install
 =======
 
+Simple
+------
+
 1. Ensure you are using `FileVault 2`_ on Mac OS X Lion or later
 2. Install ``gacli`` python module:
 
@@ -27,7 +30,43 @@ Install
 
    sudo pip install https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli
 
+VirtualEnv and User Bin
+-----------------------
+
+The following instructions assume your shell adds ``~/bin`` to your path and that you have virtualenv_ and virtualenvwrapper_ installed.
+
+1. Ensure you are using `FileVault 2`_ on Mac OS X Lion or later
+2. Create gacli virtualenv and install ``gacli`` python module:
+
+::
+
+    mkvirtualenv -i https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli gacli
+
+3. Symlink ``ga`` to home bin:
+
+::
+
+    ln -s $(which ga) ~/bin/
+
 .. _`FileVault 2`: http://support.apple.com/kb/HT4790
+.. _virtualenv: http://www.virtualenv.org/
+.. _virtualenvwrapper: http://www.doughellmann.com/projects/virtualenvwrapper/
+
+
+Configuration
+=============
+
+The ``ga`` script excepts your secret key (the first line in
+``.google_authenticator``) to be located in ``~/.ga``.
+
+
+Related
+=======
+
+* mac-ssh-confirm_: Protect against SSH Agent Hijacking on Mac OS X with the
+  ability to confirm agent identities prior to each use
+
+.. _mac-ssh-confirm: https://github.com/TimZehta/mac-ssh-confirm
 
 
 Dependencies
