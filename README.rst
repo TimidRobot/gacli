@@ -24,11 +24,9 @@ Simple
 ------
 
 1. Ensure you are using `FileVault 2`_ on Mac OS X Lion or later
-2. Install ``gacli`` python module:
+2. Install ``gacli`` python module: ::
 
-::
-
-   sudo pip install https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli
+       sudo pip install https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli
 
 VirtualEnv and User Bin
 -----------------------
@@ -36,17 +34,13 @@ VirtualEnv and User Bin
 The following instructions assume your shell adds ``~/bin`` to your path and that you have virtualenv_ and virtualenvwrapper_ installed.
 
 1. Ensure you are using `FileVault 2`_ on Mac OS X Lion or later
-2. Create gacli virtualenv and install ``gacli`` python module:
+2. Create gacli virtualenv and install ``gacli`` python module: ::
 
-::
+       mkvirtualenv -i https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli gacli
 
-    mkvirtualenv -i https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli gacli
+3. Symlink ``ga`` to home bin: ::
 
-3. Symlink ``ga`` to home bin:
-
-::
-
-    ln -s $(which ga) ~/bin/
+       ln -s $(which ga) ~/bin/
 
 .. _`FileVault 2`: http://support.apple.com/kb/HT4790
 .. _virtualenv: http://www.virtualenv.org/
@@ -69,9 +63,10 @@ Related
 .. _mac-ssh-confirm: https://github.com/TimZehta/mac-ssh-confirm
 
 
-Dependencies
+Requirements
 ============
 
+- Mac OS X Lion or Mountain Lion
 - onetimepass_
 
 .. _onetimepass: https://github.com/tadeck/onetimepass
