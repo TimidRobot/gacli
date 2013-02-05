@@ -1,6 +1,9 @@
 gacli
 =====
 
+``gacli`` was created for used with google-authenticator_. Thankfully, TOTP_ is
+an open standard so ``gacli`` may have additional applications.
+
 The ``ga`` command line utility provides convenient access to TOTP verification
 codes: ::
 
@@ -16,15 +19,19 @@ codes: ::
     The debug option continually prints verification codes instead of copying a
     single code to the clipboard.
 
+.. _google-authenticator: https://code.google.com/p/google-authenticator/
+.. _TOTP: http://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm
+
 
 Install
 =======
 
+Choose *either* the Simple *or* VirtualEnv and User Bin installation:
+
 Simple
 ------
 
-1. Ensure you are using `FileVault 2`_ on Mac OS X Lion or later
-2. Install ``gacli`` python module: ::
+1. Install ``gacli`` python module: ::
 
        sudo pip install https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli
 
@@ -33,12 +40,11 @@ VirtualEnv and User Bin
 
 The following instructions assume your shell adds ``~/bin`` to your path and that you have virtualenv_ and virtualenvwrapper_ installed.
 
-1. Ensure you are using `FileVault 2`_ on Mac OS X Lion or later
-2. Create gacli virtualenv and install ``gacli`` python module: ::
+1. Create gacli virtualenv and install ``gacli`` python module: ::
 
        mkvirtualenv -i https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli gacli
 
-3. Symlink ``ga`` to home bin: ::
+2. Symlink ``ga`` to home bin: ::
 
        ln -s $(which ga) ~/bin/
 
@@ -50,8 +56,11 @@ The following instructions assume your shell adds ``~/bin`` to your path and tha
 Configuration
 =============
 
-The ``ga`` script excepts your secret key (the first line in
-``.google_authenticator``) to be located in ``~/.ga``.
+1. Ensure you are using disk encryption (ex. `FileVault 2`_ on Mac OS X Lion or
+   later)
+2. Copy the secret key from the first line of your ``.google_authenticator``
+   and put in ``~/.ga``
+3. ``chmod 0400 ~/.ga``
 
 
 Related
