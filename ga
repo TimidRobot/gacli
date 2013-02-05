@@ -34,11 +34,12 @@ def validate_secret_path(path):
         print "ERROR: file does not exist: %s" % path
         sys.exit(1)
     # validate file permissions
+    required_mode = "0400"
     secret_stat = os.stat(path)
     secret_mode = oct(stat.S_IMODE(secret_stat.st_mode))
-    if secret_mode != "0600":
-        print ("ERROR: permissions of secret file must be 0600 instead of %s" %
-               secret_mode)
+    if secret_mode != required_mode:
+        print ("ERROR: permissions of secret file must be %s instead of %s" %
+               (required_mode, secret_mode))
         sys.exit(1)
     # return validated path
     return path
