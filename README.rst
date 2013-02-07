@@ -33,7 +33,7 @@ Simple
 
 1. Install the pip python module, if you have not already done so.
 
-   - `Installation -- pip documentation`
+   - `Installation -- pip documentation`_
 
 2. Install the gacli python module: ::
 
