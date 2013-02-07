@@ -91,7 +91,7 @@ Requirements
 License
 =======
 
-- LICENSE_ (`BSD 2-Clause License`_)
+- LICENSE_ (`MIT License`_)
 
 .. _LICENSE: LICENSE
-.. _`BSD 2-Clause License`: http://www.opensource.org/licenses/BSD-2-Clause
+.. _`MIT License`: http://www.opensource.org/licenses/MIT
