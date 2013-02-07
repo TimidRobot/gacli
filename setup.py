@@ -13,7 +13,7 @@ setup(name="gacli",
       author_email="tim@clockwork.net",
       url="https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli",
       scripts=["ga"],
-      classifieres=["License :: OSI Approved :: MIT License"]
+      classifieres=["License :: OSI Approved :: MIT License"],
       install_requires=["onetimepass"],
       dependency_links=["https://github.com/tadeck/onetimepass/archive/v0.1.2.tar.gz#egg=onetimepass-0.1.2"]
       )
