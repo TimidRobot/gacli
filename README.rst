@@ -91,7 +91,7 @@ Requirements
 License
 =======
 
-gacli is licensed under the `BSD 2-Clause License <http://www.opensource.org/licenses/BSD-2-Clause>`_:
+- LICENSE_ (`BSD 2-Clause License`_)
 
-.. include:: LICENSE
-    code:
+.. _LICENSE: LICENSE
+.. _`BSD 2-Clause License`: http://www.opensource.org/licenses/BSD-2-Clause
