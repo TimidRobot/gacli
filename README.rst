@@ -26,29 +26,34 @@ codes: ::
 Install
 =======
 
-Choose *either* the Simple *or* VirtualEnv and User Bin installation:
+Choose *either* Simple *or* VirtualEnv and User Bin installation:
 
 Simple
 ------
 
-1. Install ``gacli`` python module: ::
+1. Install the pip python module, if you have not already done so.
 
-       sudo pip install https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli
+   - `Installation -- pip documentation`
+
+2. Install the gacli python module: ::
+
+        sudo pip install https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli
 
 VirtualEnv and User Bin
 -----------------------
 
-The following instructions assume your shell adds ``~/bin`` to your path and that you have virtualenv_ and virtualenvwrapper_ installed.
+The following instructions assume your shell adds ``~/bin`` to your path and
+that you have virtualenv_ and virtualenvwrapper_ installed.
 
-1. Create gacli virtualenv and install ``gacli`` python module: ::
+1. Create a new gacli virtualenv and install the gacli python module: ::
 
-       mkvirtualenv -i https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli gacli
+        mkvirtualenv -i https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli gacli
 
 2. Symlink ``ga`` to home bin: ::
 
-       ln -s $(which ga) ~/bin/
+        ln -s $(which ga) ~/bin/
 
-.. _`FileVault 2`: http://support.apple.com/kb/HT4790
+.. _`Installation -- pip documentation`: http://www.pip-installer.org/en/latest/installing.html
 .. _virtualenv: http://www.virtualenv.org/
 .. _virtualenvwrapper: http://www.doughellmann.com/projects/virtualenvwrapper/
 
@@ -61,6 +66,8 @@ Configuration
 2. Copy the secret key from the first line of your ``.google_authenticator``
    and put in ``~/.ga``
 3. ``chmod 0400 ~/.ga``
+
+.. _`FileVault 2`: http://support.apple.com/kb/HT4790
 
 
 Related
