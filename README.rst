@@ -26,10 +26,13 @@ codes: ::
 Install
 =======
 
-Choose *either* Simple *or* VirtualEnv and User Bin installation:
+Choose *either* of the following installation methods:
 
-Simple
-------
+1. Simple Global
+2. VirtualEnv and User Bin
+
+Simple Global
+-------------
 
 1. Install the pip python module, if you have not already done so.
 
@@ -42,8 +45,13 @@ Simple
 VirtualEnv and User Bin
 -----------------------
 
-The following instructions assume your shell adds ``~/bin`` to your path and
-that you have virtualenv_ and virtualenvwrapper_ installed.
+This installation method has the following requirements:
+
+- Your ``PATH`` includes ``~/bin``
+- virtualenv_ Python module is installed
+- virtualenvwrapper_ Python module is installed
+
+Installation:
 
 1. Create a new gacli virtualenv and install the gacli python module: ::
 
