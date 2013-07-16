@@ -23,6 +23,20 @@ codes: ::
 .. _TOTP: http://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm
 
 
+Security
+========
+
+This application assumes you have secured your local computer disk or filesystem
+encryption. ``gacli`` is only safe **with encryption**:
+
+- `OS X: About FileVault 2`_
+.. - `EncryptedFilesystems - Community Ubuntu Documentation`_
+
+.. _`OS X: About FileVault 2`: https://support.apple.com/kb/ht4790
+.. _`EncryptedFilesystems - Community Ubuntu Documentation`:
+   https://help.ubuntu.com/community/EncryptedFilesystems
+
+
 Install
 =======
 
@@ -69,13 +83,10 @@ Installation:
 Configuration
 =============
 
-1. Ensure you are using disk encryption (ex. `FileVault 2`_ on Mac OS X Lion or
-   later)
+1. See `Security`_
 2. Copy the secret key from the first line of your ``.google_authenticator``
    and put in ``~/.ga``
 3. ``chmod 0400 ~/.ga``
-
-.. _`FileVault 2`: http://support.apple.com/kb/HT4790
 
 
 Related
@@ -99,7 +110,6 @@ Requirements
 License
 =======
 
-- LICENSE_ (`MIT License`_)
+- `<LICENSE>`_ (`MIT License`_)
 
-.. _LICENSE: LICENSE
 .. _`MIT License`: http://www.opensource.org/licenses/MIT
