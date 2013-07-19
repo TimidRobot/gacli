@@ -1,10 +1,12 @@
 #!/usr/bin/env python
-"""Copy newline terminated TOTP verification code to Mac OS X clipboard."""
+"""Copy newline terminated TOTP verification code to the clipboard."""
 epilog = """The debug option continually prints verification codes instead of
 copying a single code to the clipboard."""
 # Standard library
 import argparse
+from distutils.spawn import find_executable
 import os.path
+import platform
 import stat
 import subprocess
 import sys
@@ -13,9 +15,9 @@ import time
 import onetimepass as otp
 
 
-def pbcopy(data):
-    """Copy data to Mac OS X clipbard via pbcopy command."""
-    p = subprocess.Popen(["pbcopy"], stdin=subprocess.PIPE)
+def send_data_to_cmd(cmd, data):
+    """Send data to specified command."""
+    p = subprocess.Popen([cmd], stdin=subprocess.PIPE)
     p.stdin.write(data)
     p.stdin.close()
     exit_status = p.wait()
@@ -93,12 +95,12 @@ secret = read_secret(args)
 if args.debug:
     try:
         code = ""
-        print "Time\t\tVerification Code"
-        print "====\t\t================="
+        print "%-12s%s" % ("Time", "Verification Code")
+        print "%-12s%s" % ("====", "=================")
         while True:
             if not code or time.strftime("%S") in ("00", "30"):
                 code = get_code(secret)
-                print "%s\t%s" % (time.strftime("%H:%M:%S"), code)
+                print "%-12s%s" % (time.strftime("%H:%M:%S"), code)
                 old_code = code
             time.sleep(1)
     except KeyboardInterrupt:
@@ -106,5 +108,16 @@ if args.debug:
 else:
     # newline terminated TOTP code
     code = "%s\n" % get_code(secret)
-    # copy to clipboard
-    sys.exit(pbcopy(code))
+    if platform.system() == "Darwin":
+        cmd = "pbcopy"
+    elif platform.system() == "Linux":
+        if find_executable("xclip"):
+            cmd = "xclip"
+        elif find_executable("xsel"):
+            cmd = "xseli -i"
+        else:
+            cmd = "cat"
+    else:
+        cmd = "cat"
+    # pipe code to cmd (to clipboard cmd or display via cat)
+    sys.exit(send_data_to_cmd(cmd, code))

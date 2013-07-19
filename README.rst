@@ -30,7 +30,7 @@ This application assumes you have secured your local computer disk or filesystem
 encryption. ``gacli`` is only safe **with encryption**:
 
 - `OS X: About FileVault 2`_
-.. - `EncryptedFilesystems - Community Ubuntu Documentation`_
+ - `EncryptedFilesystems - Community Ubuntu Documentation`_
 
 .. _`OS X: About FileVault 2`: https://support.apple.com/kb/ht4790
 .. _`EncryptedFilesystems - Community Ubuntu Documentation`:
@@ -101,7 +101,9 @@ Related
 Requirements
 ============
 
-- Mac OS X Lion or Mountain Lion
+- Linux or Mac OS X
+  - Linux utilizes ``xclip`` or ``xsel``.
+  - Mac OS X utilizes ``pbcopy``
 - onetimepass_
 
 .. _onetimepass: https://github.com/tadeck/onetimepass
