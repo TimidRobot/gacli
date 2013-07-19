@@ -102,8 +102,10 @@ Requirements
 ============
 
 - Linux or Mac OS X
+
   - Linux utilizes ``xclip`` or ``xsel``.
   - Mac OS X utilizes ``pbcopy``
+
 - onetimepass_
 
 .. _onetimepass: https://github.com/tadeck/onetimepass
