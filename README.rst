@@ -42,8 +42,8 @@ Install
 
 Choose *either* of the following installation methods:
 
-1. Simple Global
-2. VirtualEnv and User Bin
+1. `Simple Global`_
+2. `VirtualEnv and User Bin`_ (recommended)
 
 Simple Global
 -------------
@@ -54,7 +54,7 @@ Simple Global
 
 2. Install the gacli python module: ::
 
-        sudo pip install https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli
+        sudo pip install gacli
 
 VirtualEnv and User Bin
 -----------------------
@@ -69,7 +69,7 @@ Installation:
 
 1. Create a new gacli virtualenv and install the gacli python module: ::
 
-        mkvirtualenv -i https://github.com/ClockworkNet/gacli/archive/master.zip#egg=gacli gacli
+        mkvirtualenv -i gacli gacli
 
 2. Symlink ``ga`` to home bin: ::
 
