@@ -114,6 +114,8 @@ Requirements
 License
 =======
 
-- `<LICENSE>`_ (`MIT License`_)
+- `LICENSE.txt`_ (`MIT License`_)
 
+.. _`LICENSE.txt`:
+   https://github.com/ClockworkNet/gacli/blob/master/LICENSE.txt
 .. _`MIT License`: http://www.opensource.org/licenses/MIT
