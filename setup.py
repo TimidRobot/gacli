@@ -9,14 +9,8 @@ except ImportError:
 with open('README.rst') as file:
     long_description = file.read()
 
-setup(name="gacli",
-      version="1.0.1",
-      description="Google Authentication command line tools",
-      long_description=long_description,
-      author="Timid Robot Zehta",
+setup(author="Timid Robot Zehta",
       author_email="tim@clockwork.net",
-      url="https://github.com/ClockworkNet/gacli/",
-      scripts=["ga"],
       classifiers=["Environment :: Console",
                    "Intended Audience :: System Administrators",
                    "Intended Audience :: Developers",
@@ -24,5 +18,11 @@ setup(name="gacli",
                    "Topic :: Security",
                    "Topic :: Utilities",
                    ],
+      description="Google Authentication command line tools",
       install_requires=["onetimepass"],
+      long_description=long_description,
+      name="gacli",
+      scripts=["ga"],
+      url="https://github.com/ClockworkNet/gacli/",
+      version="1.0.1",
       )
