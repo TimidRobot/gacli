@@ -1,6 +1,10 @@
 #!/usr/bin/env python
-# Standard library
-from distutils.core import setup
+try:
+    # Third-party
+    from setuptools import setup
+except ImportError:
+    # Standard library
+    from distutils.core import setup
 
 with open('README.rst') as file:
     long_description = file.read()
