@@ -24,5 +24,5 @@ setup(author="Timid Robot Zehta",
       name="gacli",
       scripts=["ga"],
       url="https://github.com/ClockworkNet/gacli/",
-      version="1.0.1",
+      version="1.0.2",
       )
