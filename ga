@@ -63,12 +63,14 @@ def get_code(secret):
 def read_secret(args):
     """Read secret from file."""
     # validate secret file path
-    secret_path = validate_secret_path(args.file)
-    if args.debug:
-        print "Secret file path: %s\n" % secret_path
-
-    # read secret from file
-    secret_file = open(secret_path, "r")
+    if args.file == "-":
+        secret_file = sys.stdin
+    else:
+        secret_path = validate_secret_path(args.file)
+        if args.debug:
+            print "Secret file path: %s\n" % secret_path
+        # read secret from file
+        secret_file = open(secret_path, "r")
     for line in secret_file.readlines():
         line = line.strip()
         # ignore comments and blank line
@@ -85,7 +87,7 @@ def parser_setup():
     ap.add_argument("-d", "--debug", action="store_true",
                     help="print debug information")
     ap.add_argument("-f", "--file", type=str, default="~/.ga",
-                    help="Secret file")
+                    help="Secret file (use \"-\" for stdin)")
     return ap.parse_args()
 
 
