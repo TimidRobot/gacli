@@ -31,10 +31,14 @@ encryption. ``gacli`` is only safe **with encryption**:
 
 - `OS X: About FileVault 2`_
 - `EncryptedFilesystems - Community Ubuntu Documentation`_
+- `GnuPG`_
+- `GPGSuite`_ (GnuPG for Mac OS X)
 
 .. _`OS X: About FileVault 2`: https://support.apple.com/kb/ht4790
 .. _`EncryptedFilesystems - Community Ubuntu Documentation`:
    https://help.ubuntu.com/community/EncryptedFilesystems
+.. _`GnuPG`: http://www.gnupg.org/
+.. _`GPGSuite`: https://gpgtools.org/gpgsuite.html
 
 
 Install
