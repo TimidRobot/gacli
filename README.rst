@@ -48,11 +48,12 @@ Choose *either* of the following installation methods:
 Simple Global
 -------------
 
-1. Install the pip python module, if you have not already done so.
+1. Please consider, again, using the `VirtualEnv and User Bin`_ method
+2. Install the pip python module, if you have not already done so.
 
    - `Installation -- pip documentation`_
 
-2. Install the gacli python module: ::
+3. Install the gacli python module::
 
         sudo pip install gacli
 
@@ -67,11 +68,11 @@ This installation method has the following requirements:
 
 Installation:
 
-1. Create a new gacli virtualenv and install the gacli python module: ::
+1. Create a new gacli virtualenv and install the gacli python module::
 
         mkvirtualenv -i gacli gacli
 
-2. Symlink ``ga`` to home bin: ::
+2. Symlink ``ga`` to home bin::
 
         ln -s $(which ga) ~/bin/
 
@@ -86,7 +87,25 @@ Configuration
 1. See `Security`_
 2. Copy the secret key from the first line of your ``.google_authenticator``
    and put in ``~/.ga``
-3. ``chmod 0400 ~/.ga``
+3. Change permissions::
+
+    chmod 0400 ~/.ga
+
+
+GnuPG Protection
+----------------
+
+1. Encrypt secret file::
+
+    cat ~/.ga | gpg -aes -r EMAIL > .ga.gpg
+
+2. Delete unencrypted secret file::
+
+   rm ~/.ga
+
+3. Add an alias to your ``.bashrc``::
+
+   alias gad='gpg -qd ~/.ga.gpg | ga -f -'
 
 
 Related
