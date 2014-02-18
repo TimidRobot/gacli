@@ -101,11 +101,11 @@ GnuPG Protection
 
 2. Delete unencrypted secret file::
 
-   rm ~/.ga
+    rm ~/.ga
 
 3. Add an alias to your ``.bashrc``::
 
-   alias gad='gpg -qd ~/.ga.gpg | ga -f -'
+    alias gad='gpg -qd ~/.ga.gpg | ga -f -'
 
 
 Related
