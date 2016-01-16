@@ -1,74 +1,107 @@
 #!/usr/bin/env python
+
 """Copy newline terminated TOTP verification code to the clipboard."""
-epilog = """The debug option continually prints verification codes instead of
-copying a single code to the clipboard."""
+
 # Standard library
-import argparse
+from __future__ import absolute_import, division, print_function
 from distutils.spawn import find_executable
+import argparse
 import os.path
 import platform
 import stat
 import subprocess
 import sys
 import time
+
 # Third-party
 import onetimepass as otp
 
 
+EPILOG = """The debug option continually prints verification codes instead of
+copying a single code to the clipboard."""
+
+
 def send_data_to_cmd(cmd, data):
-    """Send data to specified command."""
-    p = subprocess.Popen([cmd], stdin=subprocess.PIPE)
+    """Send data to specified command.
+    """
+    p = subprocess.Popen([cmd], stdin=subprocess.PIPE, universal_newlines=True)
     p.stdin.write(data)
     p.stdin.close()
     exit_status = p.wait()
     return exit_status
 
 
+def find_copy_to_clip_cmd():
+    """Attempt to find command to copy to clipboard or default to cat.
+    """
+    if platform.system() == "Darwin":
+        return "pbcopy"
+    elif platform.system() == "Linux":
+        if find_executable("xclip"):
+            return "xclip"
+        elif find_executable("xsel"):
+            return "xseli -i"
+    return "cat"
+
+
+def continuously_display_codes(secret):
+    """Display new code every minute and half-minute.
+    """
+    code = ""
+    print("{:<10}{}".format("Time", "Verification Code"))
+    print("{:<10}{}".format("====", "================="))
+    while True:
+        if not code or time.strftime("%S") in ("00", "30"):
+            code = get_code(secret)
+            print("{:<10}{}".format(time.strftime("%H:%M:%S"), code))
+        time.sleep(1)
+
+
+def get_code(secret):
+    """Get TOTP verification code.
+    """
+    try:
+        code = otp.get_totp(secret, True)
+    except Exception as e:
+        name = e.__class__.__name__
+        print("ERROR: {}:".format(name), end=None)
+        for arg in e.args:
+            print(arg, end=None)
+        print()
+        sys.exit(1)
+    code = code.decode(sys.stdout.encoding)
+    return code
+
+
 def validate_secret_path(path):
     """Validate secret file exists and has secure permissions."""
-    # expand path
     path = os.path.expanduser(path)
-    # path exists
     if os.path.exists(path):
         path = os.path.abspath(path)
     else:
-        print "ERROR: file does not exist: %s" % path
+        print("ERROR: file does not exist: {}".format(path))
         sys.exit(1)
     # validate file permissions
     required_mode = "0400"
     secret_stat = os.stat(path)
     secret_mode = oct(stat.S_IMODE(secret_stat.st_mode))
     if secret_mode != required_mode:
-        print ("ERROR: permissions of secret file must be %s instead of %s" %
-               (required_mode, secret_mode))
+        print("ERROR: permissions of secret file must be {} instead of {}"
+              .format(required_mode, secret_mode))
         sys.exit(1)
-    # return validated path
     return path
 
 
-def get_code(secret):
-    """Get TOTP verification code."""
-    try:
-        code = otp.get_totp(secret, True)
-    except Exception as e:
-        name = e.__class__.__name__
-        print "ERROR: %s:" % name,
-        for arg in e.args:
-            print arg,
-        print
-        sys.exit(1)
-    return code
-
-
 def read_secret(args):
-    """Read secret from file."""
-    # validate secret file path
+    """Read secret from file.
+    """
     if args.file == "-":
         secret_file = sys.stdin
     else:
+        # validate secret file path
         secret_path = validate_secret_path(args.file)
         if args.debug:
-            print "Secret file path: %s\n" % secret_path
+            print("Secret file path: {}".format(secret_path), end="\n\n")
         # read secret from file
         secret_file = open(secret_path, "r")
     for line in secret_file.readlines():
@@ -82,8 +115,9 @@ def read_secret(args):
 
 
 def parser_setup():
-    """Instantiate, configure and return an argparse instance."""
-    ap = argparse.ArgumentParser(description=__doc__, epilog=epilog)
+    """Instantiate, configure and return an argparse instance.
+    """
+    ap = argparse.ArgumentParser(description=__doc__, epilog=EPILOG)
     ap.add_argument("-d", "--debug", action="store_true",
                     help="print debug information")
     ap.add_argument("-f", "--file", type=str, default="~/.ga",
@@ -91,35 +125,21 @@ def parser_setup():
     return ap.parse_args()
 
 
-args = parser_setup()
-secret = read_secret(args)
-# continually display codes or copy single code to clipboard
-if args.debug:
-    try:
-        code = ""
-        print "%-12s%s" % ("Time", "Verification Code")
-        print "%-12s%s" % ("====", "=================")
-        while True:
-            if not code or time.strftime("%S") in ("00", "30"):
-                code = get_code(secret)
-                print "%-12s%s" % (time.strftime("%H:%M:%S"), code)
-                old_code = code
-            time.sleep(1)
-    except KeyboardInterrupt:
-        sys.exit(130)
-else:
-    # newline terminated TOTP code
-    code = "%s\n" % get_code(secret)
-    if platform.system() == "Darwin":
-        cmd = "pbcopy"
-    elif platform.system() == "Linux":
-        if find_executable("xclip"):
-            cmd = "xclip"
-        elif find_executable("xsel"):
-            cmd = "xseli -i"
-        else:
-            cmd = "cat"
+def main():
+    args = parser_setup()
+    secret = read_secret(args)
+    if args.debug:
+        continuously_display_codes(secret)
     else:
-        cmd = "cat"
-    # pipe code to cmd (to clipboard cmd or display via cat)
-    sys.exit(send_data_to_cmd(cmd, code))
+        code = "{}\n".format(get_code(secret))
+        cmd = find_copy_to_clip_cmd()
+        exit_status = send_data_to_cmd(cmd, code)
+        sys.exit(exit_status)
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        print()
+        sys.exit(130)
