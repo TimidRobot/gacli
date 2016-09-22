@@ -5,7 +5,7 @@ gacli
 an open standard so ``gacli`` may have additional applications.
 
 The ``ga`` command line utility provides convenient access to TOTP verification
-codes: ::
+codes::
 
     usage: ga [-h] [-d] [-f FILE]
 
@@ -26,8 +26,8 @@ codes: ::
 Security
 ========
 
-This application assumes you have secured your local computer disk or filesystem
-encryption. ``gacli`` is only safe **with encryption**:
+This application assumes you have secured your local computer disk or
+filesystem encryption. ``gacli`` is only safe **with encryption**:
 
 - `OS X: About FileVault 2`_
 - `EncryptedFilesystems - Community Ubuntu Documentation`_
@@ -115,7 +115,7 @@ GnuPG Protection
 Related
 =======
 
-* mac-ssh-confirm_: Protect against SSH Agent Hijacking on Mac OS X with the
+- mac-ssh-confirm_: Protect against SSH Agent Hijacking on Mac OS X with the
   ability to confirm agent identities prior to each use
 
 .. _mac-ssh-confirm: https://github.com/TimZehta/mac-ssh-confirm
