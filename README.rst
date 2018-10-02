@@ -49,6 +49,7 @@ Choose *either* of the following installation methods:
 1. `Simple Global`_
 2. `VirtualEnv and User Bin`_ (recommended)
 
+
 Simple Global
 -------------
 
@@ -60,6 +61,7 @@ Simple Global
 3. Install the gacli python module::
 
         sudo pip install gacli
+
 
 VirtualEnv and User Bin
 -----------------------
@@ -134,10 +136,20 @@ Requirements
 .. _onetimepass: https://github.com/tadeck/onetimepass
 
 
+Supported By
+============
+
+Development of this project has been supported by `Clockwork`_
+(`ClockworkNet`_). Thank you!
+
+.. _Clockwork: https://www.clockwork.com/
+.. _ClockworkNet: https://github.com/ClockworkNet
+
+
 License
 =======
 
-- `LICENSE.txt`_ (`MIT License`_)
+- `LICENSE.txt`_ (Expat License/`MIT License`_)
 
 .. _`LICENSE.txt`:
    https://github.com/ClockworkNet/gacli/blob/master/LICENSE.txt
