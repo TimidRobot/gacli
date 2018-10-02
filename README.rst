@@ -149,8 +149,7 @@ Development of this project has been supported by `Clockwork`_
 License
 =======
 
-- `LICENSE.txt`_ (Expat License/`MIT License`_)
+- `LICENSE`_ (Expat License/`MIT License`_)
 
-.. _`LICENSE.txt`:
-   https://github.com/ClockworkNet/gacli/blob/master/LICENSE.txt
+.. _`LICENSE`: https://github.com/TimidRobot/gacli/blob/master/LICENSE
 .. _`MIT License`: http://www.opensource.org/licenses/MIT
