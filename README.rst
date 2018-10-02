@@ -151,5 +151,5 @@ License
 
 - `LICENSE`_ (Expat License/`MIT License`_)
 
-.. _`LICENSE`: https://github.com/TimidRobot/gacli/blob/master/LICENSE
+.. _`LICENSE`: LICENSE
 .. _`MIT License`: http://www.opensource.org/licenses/MIT
