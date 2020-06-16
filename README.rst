@@ -136,16 +136,6 @@ Requirements
 .. _onetimepass: https://github.com/tadeck/onetimepass
 
 
-Supported By
-============
-
-Development of this project has been supported by `Clockwork`_
-(`ClockworkNet`_). Thank you!
-
-.. _Clockwork: https://www.clockwork.com/
-.. _ClockworkNet: https://github.com/ClockworkNet
-
-
 License
 =======
 

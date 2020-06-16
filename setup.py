@@ -31,13 +31,13 @@ classifiers = ["Environment :: Console",
                "Topic :: Utilities"]
 
 setup(author="Timid Robot Zehta",
-      author_email="tim@clockwork.net",
+      author_email="timidrobot@zehta.me",
       classifiers=classifiers,
       description="Google Authentication command line tools",
       install_requires=["onetimepass"],
       long_description=long_description,
       name="gacli",
       scripts=["ga"],
-      url="https://github.com/ClockworkNet/gacli/",
-      version="1.0.3",
+      url="https://github.com/TimidRobot/gacli",
+      version="1.0.4",
       )
