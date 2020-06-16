@@ -120,7 +120,7 @@ Related
 - mac-ssh-confirm_: Protect against SSH Agent Hijacking on Mac OS X with the
   ability to confirm agent identities prior to each use
 
-.. _mac-ssh-confirm: https://github.com/TimZehta/mac-ssh-confirm
+.. _mac-ssh-confirm: https://github.com/TimidRobot/mac-ssh-confirm
 
 
 Requirements
